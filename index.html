@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Global Disease Outbreak Mapper maps the outbreaks happening worldwide and also helps you find out how close you are to a Disease Outbreak zone." />
+    <meta name="author" content="Subigya Nepal" />
+<meta name="title" content="Global Disease Outbreaks Map" />
+<link rel="image_src" href="http://www.globaloutbreakmap.com/img/outbreak.png" />
+    <title>Global Outbreaks Mapper for Diseases</title>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/outbreak.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/gmaps.css" />
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Javascripts-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="js/gmaps.js"></script>
+    <script type="text/javascript" src="js/share.min.js"></script>
+    <script type="text/javascript" src="js/diseaseoutbreak.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Header -->
+   <header id="top"> <div id="themap"></div></header>
+
+
+<div class="text-vertical-center">
+  <h1>Global Outbreaks Map</h1>    <div id="info">
+           <h3>How close are you to the nearest disease outbreak?</h3>
+</div>
+           <br>
+
+   
+</div>
+    <!-- Share Button -->
+ 
+  <aside class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+               <div class="row"><div class="col-lg-12 text-center">
+<br>
+<br>
+               <div class="share-button" style="margin:0 auto; text-align:center"><script>
+
+config = {
+  networks: {
+    email: {
+      enabled: false
+    }
+  }
+}
+
+    var share = new Share(".share-button", config);
+
+</script></div>
+                </div>
+            </div>
+        <div>
+    </aside>
+
+    <!-- Details -->
+    
+    <section id="details">
+        <div class="container">
+            <div class="row">
+
+<br>
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h3><strong>Where did the data come from?</strong>
+                    </h3>
+                    <p class="lead"><a href="http://wwwnc.cdc.gov/travel/notices" class="highlight">Travel Health Notices from CDC.</a> </p><br>
+                    <h3><strong>What do the colored markers (red, green, yellow) represent?</strong>
+                    </h3>
+                    <p class="lead">The colors represent three different kinds of notices issued by the CDC. </p>
+<ul class="list-unstyled">
+                        <li><img src="img/red.png" alt="red marker"></a> Warning Level 3, Avoid Nonessential Travel</li>
+                        <li><img src="img/yellow.png" alt="yellow marker"></a>Alert Level 2, Practice Enhanced Precautions</li>
+			<li><img src="img/green.png" alt="green marker"></a> Watch Level 1, Practice Usual Precautions </li>
+                    </ul>
+                 
+                </div>
+</div>
+        </div>
+<br>
+        </section>
+<!-- Contact -->
+ <section id="contact" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Contact Us</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="contact-item">
+                                     </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="contact-item">
+                                 <h4><strong>Subigya Kumar Nepal</strong>
+                    </h4>
+                    <p>Kathmandu, Nepal</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-external-link fa-fw"></i><a href="http://www.thelacunablog.com">The Lacuna Blog </a></li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:maiden_iron00@hotmail.com">maiden_iron00@hotmail.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="http://www.facebook.com/eatmashorts"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="http://www.twitter.com/SkNepal"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="http://www.github.com/sknepal"><i class="fa fa-github fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="contact-item">
+                                  <h4><strong>Bhishan Bhandari</strong>
+                    </h4>
+                    <p>Kathmandu, Nepal</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-external-link fa-fw"></i><a href="http://www.thetaranights.com">The Tara Nights</a></li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:bbhishan@gmail.com">bbhishan@gmail.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="http://www.facebook.com/bbhishan"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/113209737134836808504"><i class="fa fa-google-plus fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="http://www.github.com/bhishan"><i class="fa fa-github fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </section>
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+ <hr class="small">
+                    <p class="text-muted">Copyright &copy; GlobalOutbreakMap.com 2014</p>
+
+                    </div>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55224943-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>
