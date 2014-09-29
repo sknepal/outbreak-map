@@ -2,7 +2,7 @@
 **Outbreak Map** marks outbreaks happening worldwide, and with the help of geolocation, finds out the nearest outbreak to you.
 
 
-## Technologies Used
+## Built Using
 
 1. [Bootstrap](http://www.startbootstrap.com) : For a better UI.
 2. [Gmaps.js](https://github.com/hpneo/gmaps) : For easiness in using Google Maps.
