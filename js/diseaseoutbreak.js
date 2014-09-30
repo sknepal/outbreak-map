@@ -1,15 +1,45 @@
+//v2.0 - 30 sep 2014
+
 var map;
-var count=-1;
+var count = 0;
+var loaded = false;
 var bounds = [];
 var zoombounds = [];
-    $(document).ready(function(){
-      map = new GMaps({
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=1ajIS1HjWaFAn6kw4cbEt6BVvHoKQdTqRPh0TUkudGqs&output=html';
+
+$(document).ready(function(){
+ map = new GMaps({
         div: '#themap',
   	lat: 28.2639,
   	lng: 83.9722,
 	zoom: 7
       });
 map.setCenter(28.2639, 83.9722);
+
+    Tabletop.init( { key: public_spreadsheet_url,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  
+ function showInfo(data, tabletop) {
+for (i=0;i<data.length;i++){
+	addOutbreak(data[i].lat, data[i].lng, data[i].location, data[i].condition, data[i].disease, data);
+	}
+}
+
+function addOutbreak(lat, lng, location, condition, disease, data){
+	 var marker2 = map.addMarker({
+	      	lat: lat,
+	      	lng: lng,
+	      	title: location,
+		icon: "img/" + condition + ".png",
+	      	infoWindow: {
+	       	 content: disease + " in " + location }
+	    	});	
+	zoombounds.push(marker2.getPosition());
+count++;
+if (count == data.length) loaded = true; 
+}
+
 map.addControl({
 		position: 'top_right',
 		content: 'View All',
@@ -28,7 +58,7 @@ map.addControl({
 		}
 	}
 	});
-	
+
       map.addControl({
         position: 'top_right',
         content: 'Locate Me',
@@ -75,55 +105,14 @@ map.addControl({
         }
       });
 
-	ebolaMark(6.4280550, -9.429498999999964000, 'Liberia', 'red', 'Ebola');
-	ebolaMark(8.460555000000000000, -11.779889000000026000, 'Sierra Leone', 'red', 'Ebola');
-	ebolaMark(9.945587000000000000, -9.696644999999990000, 'Guinea', 'red', 'Ebola');
 	
-	ebolaMark(-0.228021000000000000, 15.827659000000040000, 'Congo', 'yellow', 'Ebola');
-	ebolaMark(9.081999000000000000, 8.675277000000051000, 'Nigeria', 'yellow', 'Ebola');
-	ebolaMark(7.369721999999999000, 12.354722000000038000, 'Cameroon', 'yellow', 'Polio');
-	ebolaMark(5.152149000000000000, 46.199615999999990000, 'Somalia', 'yellow', 'Polio');
-	ebolaMark(42.039604200000000000, 9.012892599999986000, 'Corsica (France)', 'yellow', 'Schistosomiasis');
-	ebolaMark(33.223191000000000000, 43.679291000000035000, 'Iraq', 'yellow', 'Polio');
-	ebolaMark(1.650801000000000000, 10.267894999999953000, 'Equatorial Guinea', 'yellow', 'Polio');
-	ebolaMark(9.145000000000001000, 40.489673000000040000, 'Ethiopia', 'yellow', 'Polio');
-	ebolaMark(34.802074999999990000, 38.996814999999970000, 'Syria', 'yellow', 'Polio');
-	ebolaMark(23.885942000000000000, 45.079162000000000000, 'Arabian Peninsula (Saudi Arabia)', 'yellow', 'MERS (Middle East Respiratory Syndrome)');
-
-	ebolaMark(12.769012600000000000, -85.602364299999970000, 'Central America', 'green', 'Chikungunya');
-	ebolaMark(-8.783195000000000000, -55.491477000000030000, 'South America', 'green', 'Chikungunya');
-	ebolaMark(-13.759029000000000000, -172.104629000000000000, 'Samoa', 'green', 'Chikungunya');
-	ebolaMark(20.154019500000000000, -76.085601000000000000, 'Caribbean', 'green', 'Chikungunya');
-	ebolaMark(6.887457400000000000, 158.215071699999950000, 'Federated States of Micronesia', 'green', 'Measles');
-	ebolaMark(-14.3333, -170, 'American Samoa', 'green', 'Chikungunya');
-	ebolaMark(36.204824000000000000, 138.252924000000000000, 'Japan', 'green', 'Dengue');
-	ebolaMark(4.210484000000000000, 101.975766000000020000, 'Malaysia', 'green', 'Sarcocystosis');
-	ebolaMark(12.879721000000000000, 121.774016999999960000, 'Phillippines', 'green', 'Measles');
-	ebolaMark(14.058324000000000000, 108.277199000000000000, 'Vietnam', 'green', 'Measles');
-	ebolaMark(18.735693000000000000, -70.162650999999980000, 'Dominican Republic', 'green', 'Cholera');
-	ebolaMark(21.5, -80, 'Cuba', 'green', 'Cholera');
-	ebolaMark(23.634501000000000000, -102.552783999999970000, 'Mexico', 'green', 'Cholera');
-	ebolaMark(18.971187000000000000, -72.285215000000000000, 'Haiti', 'green', 'Cholera');
-	ebolaMark(35.861660000000000000, 104.195396999999960000, 'China', 'green', 'Avian Flu (H7N9)');
-	ebolaMark(26.820553000000000000, 30.802498000000014000, 'Egypt', 'green', 'Maleria');
-	ebolaMark(-6.369028000000000000, 34.888822000000005000, 'Tanzania', 'green', 'Dengue');
 	
 	share.open();
     });
 
 
 
-function ebolaMark(lat, lng, title, color, disease){
-	 var marker2 = map.addMarker({
-	      	lat: lat,
-	      	lng: lng,
-	      	title: title,
-		icon: "img/" + color + ".png",
-	      	infoWindow: {
-	       	 content: disease + " in " + title }
-	    	});	
-	zoombounds.push(marker2.getPosition());
-}
+
 
 function rad(x) {return x*Math.PI/180;}
 
@@ -161,3 +150,5 @@ if (map.markers[closest].infoWindow.content!='You are here'){
 }
 }
 
+   
+    
