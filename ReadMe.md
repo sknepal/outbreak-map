@@ -15,10 +15,6 @@
 Download the repository, extract it as it is (i.e in the same hierarchy). 
 
 
-## Contributors
-[Bhishan Bhandari](http://www.github.com/bhishan)
-
-
 ## License
 
 This work is licensed under a  [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
